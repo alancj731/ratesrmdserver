@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 let rateFetched = false;
 let currecyRates: null = null;
 const INTERVAL = 1000 * 60 * 60 *24; // 24 hour
-const apiKey = process.env.API_KEY;
+const apiKey = "GY8ZKYz7fd8LQWTd7OgxbseV77QAFB7N" //process.env.API_KEY;
 
 export function startLoop() {
   checkRate();
