@@ -1,9 +1,12 @@
+import dotenv from "dotenv";
 import { Resend } from "resend";
 import { USER } from "./types";
 
+dotenv.config();
+
 export const sendEmail = async (user: USER) => {
-    const resend = new Resend("re_aKNWoDkJ_LwQU98ZFsD61TNjeZXSeWJMk") //process.env.RESEND_API_KEY);
-    console.log("user.email: ", user.email)
+
+    const resend = new Resend(process.env.RESEND_API_KEY) //process.env.RESEND_API_KEY);
     
     const result = await resend.emails.send({
     from: "onboarding@resend.dev",
