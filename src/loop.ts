@@ -9,9 +9,8 @@ const prisma = new PrismaClient();
 let rateFetched = false;
 let currecyRates:any = null;
 const INTERVAL = 1000 * 60 * 60 *24; // 24 hour
-console.log("process.env.API_KEY: ", process.env.API_KEY)
 const apiKey = process.env.API_KEY;
-console.log("apiKey: ", apiKey);
+console.log(`https://api.currencybeacon.com/v1/latest?api_key=${apiKey}&base=USD&ftype=fiat`)
 
 export function startLoop() {
   checkRate();
