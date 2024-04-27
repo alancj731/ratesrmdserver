@@ -20,7 +20,7 @@ app.use(cors({
 intervalId = startLoop() // 24 hour
 
 // router to handel api access
-app.use("/api/v1", router)
+app.use("/", router)
 
 function clearBeforeExit(){
   if (intervalId) stopLoop(intervalId);
