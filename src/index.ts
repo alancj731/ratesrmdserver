@@ -22,11 +22,15 @@ app.use((_, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   next();
 });
+
+app.get('/', (req, res) => {
+  res.send('CORS-enabled for all origins!');
+});
 // set up a checking loop
 // intervalId = startLoop() // 24 hour
 
 // router to handel api access
-app.use(router)
+// app.use(router)
 
 function clearBeforeExit(){
   if (intervalId) stopLoop(intervalId);
