@@ -6,9 +6,10 @@ import { USER } from "./types";
 
 export const sendEmail = async (user: USER) => {
 
-    console.log("process.env.RESEND_API_KEY: ", process.env.RESEND_API_KEY);
+    const resendApiKey = process.env.RESEND_API_KEY?.replace(/"/g, '');
+    console.log("resendApiKey: ", resendApiKey);
 
-    const resend = new Resend(process.env.RESEND_API_KEY) //process.env.RESEND_API_KEY);
+    const resend = new Resend(resendApiKey)
     
     const result = await resend.emails.send({
     from: "onboarding@resend.dev",

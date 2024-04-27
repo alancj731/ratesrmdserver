@@ -11,7 +11,6 @@ let currecyRates:any = null;
 const INTERVAL = 1000 * 60 * 60 *24; // 24 hour
 const apiKey=process.env.API_KEY?.replace(/"/g, '');
 const fetchUrl = "https://api.currencybeacon.com/v1/latest?api_key="+apiKey+"&base=USD&ftype=fiat";
-console.log(fetchUrl)
 
 export function startLoop() {
   checkRate();
@@ -28,8 +27,6 @@ const checkRate = async () => {
       const response = await fetch(fetchUrl);
 
       const data: any = await response.json();
-
-      console.log("data: ", data)
       
       const { rates } = data;
       if (rates) {
