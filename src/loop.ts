@@ -7,10 +7,11 @@ import { sendEmail } from "./sendemail";
 const prisma = new PrismaClient();
 
 let rateFetched = false;
-let currecyRates: null = null;
+let currecyRates:any = null;
 const INTERVAL = 1000 * 60 * 60 *24; // 24 hour
 console.log("process.env.API_KEY: ", process.env.API_KEY)
 const apiKey = process.env.API_KEY;
+console.log("apiKey: ", apiKey);
 
 export function startLoop() {
   checkRate();
