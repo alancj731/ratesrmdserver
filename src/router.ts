@@ -4,7 +4,7 @@ import { Prisma, PrismaClient } from "@prisma/client";
 const router = express.Router();
 const prisma = new PrismaClient();
 
-router.put("api/v1", async (req, res) => {
+router.put("/api/v1", async (req, res) => {
   const { email, from, to, target, greater } = req.body;
   console.log(email, from, to, target, greater);
 
@@ -56,7 +56,7 @@ router.put("api/v1", async (req, res) => {
   }
 });
 
-router.get("", async (_, res) => {
+router.get("/", async (_, res) => {
   return res.status(200).json({ messge: "Hello from express server!" });
 });
 
