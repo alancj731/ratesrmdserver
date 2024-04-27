@@ -11,11 +11,17 @@ let intervalId:any = null;
 
 app.use(express.json())
 // enable CORS for all origins
-app.use(cors({
-  origin: '*', // Allow all domains
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'] // Allow all headers
-}));
+// app.use(cors({
+//   origin: '*', // Allow all domains
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods
+//   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'] // Allow all headers
+// }));
+app.use((_, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // Adjust this to match the domain you wish to allow
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  next();
+});
 // set up a checking loop
 // intervalId = startLoop() // 24 hour
 
