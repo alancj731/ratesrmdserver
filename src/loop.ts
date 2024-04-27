@@ -29,6 +29,8 @@ const checkRate = async () => {
         `https://api.currencybeacon.com/v1/latest?api_key=${apiKey}&base=USD&ftype=fiat`
       );
       const data: any = await response.json();
+
+      console.log("data: ", data)
       
       const { rates } = data;
       if (rates) {
