@@ -60,4 +60,8 @@ router.put("/", async (req, res) => {
     }
   })
 
+router.get("/", async (_, res) => {
+    return res.status(200).json({messge: "Hello from express server!"})
+})
+
 export default router
