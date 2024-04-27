@@ -1,10 +1,12 @@
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import { Resend } from "resend";
 import { USER } from "./types";
 
-dotenv.config();
+// dotenv.config();
 
 export const sendEmail = async (user: USER) => {
+
+    console.log("process.env.RESEND_API_KEY: ", process.env.RESEND_API_KEY);
 
     const resend = new Resend(process.env.RESEND_API_KEY) //process.env.RESEND_API_KEY);
     

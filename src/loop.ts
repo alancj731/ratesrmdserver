@@ -1,14 +1,15 @@
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
 import {USER} from "./types";
 import { sendEmail } from "./sendemail";
 
-dotenv.config();
+// dotenv.config();
 const prisma = new PrismaClient();
 
 let rateFetched = false;
 let currecyRates: null = null;
 const INTERVAL = 1000 * 60 * 60 *24; // 24 hour
+console.log("process.env.API_KEY: ", process.env.API_KEY)
 const apiKey = process.env.API_KEY;
 
 export function startLoop() {
