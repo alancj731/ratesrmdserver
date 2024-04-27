@@ -11,26 +11,17 @@ let intervalId:any = null;
 
 app.use(express.json())
 // enable CORS for all origins
-// app.use(cors({
-//   origin: '*', // Allow all domains
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods
-//   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'] // Allow all headers
-// }));
-app.use((_, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // Adjust this to match the domain you wish to allow
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  next();
-});
+app.use(cors({
+  origin: '*', // Allow all domains
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'] // Allow all headers
+}));
 
-app.get('/', (req, res) => {
-  res.send('CORS-enabled for all origins!');
-});
 // set up a checking loop
-// intervalId = startLoop() // 24 hour
+intervalId = startLoop() // 24 hour
 
 // router to handel api access
-// app.use(router)
+app.use(router)
 
 function clearBeforeExit(){
   if (intervalId) stopLoop(intervalId);
@@ -52,7 +43,5 @@ process.on('SIGTERM', () => {
 
 
 const server = app.listen(3000, () =>
-  console.log(`
-🚀 Server ready at: http://localhost:3000
-⭐️ See sample requests: http://pris.ly/e/ts/rest-express#3-using-the-rest-api`),
+  console.log(`🚀 Server Started!`),
 )
