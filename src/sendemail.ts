@@ -7,6 +7,7 @@ import { USER } from "./types";
 export const sendEmail = async (user: USER) => {
 
     const resendApiKey = process.env.RESEND_API_KEY?.replace(/"/g, '');
+    console.log('resendApiKey:', resendApiKey)
 
     const resend = new Resend(resendApiKey)
     

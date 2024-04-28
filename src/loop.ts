@@ -10,6 +10,7 @@ let rateFetched = false;
 let currecyRates:any = null;
 const INTERVAL = 1000 * 60 * 60 *24; // 24 hour
 const apiKey=process.env.API_KEY?.replace(/"/g, '');
+console.log('apiKey:', apiKey);
 const fetchUrl = "https://api.currencybeacon.com/v1/latest?api_key="+apiKey+"&base=USD&ftype=fiat";
 
 export function startLoop() {
