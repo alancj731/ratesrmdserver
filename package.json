@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "ts-node src/index.ts",
     "start": "ts-node src/index.ts",
-    "vercel-build": "prisma generate",
-    "build": "tsc"
+    "build": "prisma generate",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "5.12.1",
