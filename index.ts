@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 import express from 'express'
 import cors from 'cors'
-import { startLoop, stopLoop } from './loop'
-import router from "./router"
+import { startLoop, stopLoop } from './src/loop'
+import router from "./src/router"
 
 const prisma = new PrismaClient()
 const app = express()
