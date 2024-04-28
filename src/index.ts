@@ -45,5 +45,3 @@ process.on('SIGTERM', () => {
 const server = app.listen(3000, () =>
   console.log(`🚀 Server Started!`),
 )
-
-export default app;
