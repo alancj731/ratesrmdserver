@@ -1,9 +1,9 @@
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
 import {USER} from "./types";
 import { sendEmail } from "./sendemail";
 
-// dotenv.config();
+dotenv.config();
 const prisma = new PrismaClient();
 
 let rateFetched = false;

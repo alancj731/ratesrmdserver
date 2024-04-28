@@ -1,8 +1,8 @@
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
 import { Resend } from "resend";
 import { USER } from "./types";
 
-// dotenv.config();
+dotenv.config();
 
 export const sendEmail = async (user: USER) => {
 
