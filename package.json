@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "ts-node src/index.ts",
     "start": "ts-node src/index.ts",
-    "vercel-build": "echo vercel build started...",
+    "vercel-build": "prisma generate",
     "build": "tsc"
   },
   "dependencies": {
