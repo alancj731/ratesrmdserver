@@ -1,5 +1,6 @@
 import express from "express";
 import { Prisma, PrismaClient } from "@prisma/client";
+import { checkRate } from "./loop";
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -56,7 +57,12 @@ router.put("/api/v1", async (req, res) => {
   }
 });
 
-router.get("/", async (_, res) => {
+router.get("/api/v1", async (req, res) => {
+  checkRate();
+  return res.status(200).json({ message: "Checking rates succeed!" });
+});
+
+router.get("/", async (req, res) => {
   return res.status(200).json({ messge: "Hello from express server!" });
 });
 

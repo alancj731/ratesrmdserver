@@ -21,7 +21,7 @@ export function stopLoop(intervalId: NodeJS.Timeout) {
   clearInterval(intervalId);
 }
 
-const checkRate = async () => {
+export const checkRate = async () => {
   if (!rateFetched) {
     try {
       const response = await fetch(fetchUrl);

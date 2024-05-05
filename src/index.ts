@@ -1,7 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import express from 'express'
 import cors from 'cors'
-import { startLoop, stopLoop } from './loop'
 import router from "./router"
 
 const prisma = new PrismaClient()
@@ -17,14 +16,11 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'] // Allow all headers
 }));
 
-// set up a checking loop
-intervalId = startLoop() // 24 hour
 
 // router to handel api access
 app.use(router)
 
 function clearBeforeExit(){
-  if (intervalId) stopLoop(intervalId);
   prisma.$disconnect()
   process.exit()
 }
